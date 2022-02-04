@@ -14,6 +14,10 @@
     <title>PORTFOLIO</title>
     <!-- スタイルシート -->
     <link rel="stylesheet" href="style.css">
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
 </head>
 <body>
     <!--
@@ -21,14 +25,48 @@
         ・ロゴの設定をします
         ・h1タグとaタグとspanタグを使っていきます
     -->
+    
     <header>
         <h1 class="block-header">
             <a href="">
-                <span class="color-green">P</span>ortfolio
+                <div class="logo"></div>
+                
+                <span class="color-green">P</span>ortfolio 
             </a>
         </h1>
-    </header>
-
+          
+   
+    <header class="header">
+        <!-- ヘッダーロゴ -->
+        
+      
+        <!-- ハンバーガーメニュー部分 -->
+        <div class="nav">
+      
+          <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+          <input id="drawer_input" class="drawer_hidden" type="checkbox">
+      
+          <!-- ハンバーガーアイコン -->
+          <label for="drawer_input" class="drawer_open"><span></span></label>
+      
+          <!-- メニュー -->
+          <nav class="nav_content">
+            <ul class="nav_list">
+              <li class="nav_item"><a href="#Profile">Profile</a></li>
+              <li class="nav_item"><a href="#TwitterClone">Works Twitterクローン</a></li>
+              <li class="nav_item"><a href="#Kintai">Works 勤怠登録システム</a></li>
+            </ul>
+          </nav>
+          <script>
+            $(function() {
+              $('.nav_content li a').on('click', function(event) {
+                $('.drawer_hidden').prop('checked', false);
+              });
+            });
+            </script>
+        </div>
+        
+      </header>
     <!--
         mainタグの作成
         ・profile用とwork用の箱を作成する
@@ -38,25 +76,23 @@
         <!--
             profileの箱
         -->
+
         <div class="box-profile">
-            <h2 class="sub-title">
-                <span class="color-green">P</span>rofile
-            </h2>
+            <h1 id="Profile">
+            <span class="color-green">P</span>rofile
+            </h1>
             <div class="item-list">
                 <img src="img/profile.png" alt="プロフィール画像">
                 <b>宮内　優嘉</b>
                 <p class="color-green">HTML / CSS / PHP / MySQL / Laravel / Adobe XD</p>
-                <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。A</p>
+                <p>　制作物を作る際、ただコードを書くだけでなく開発にあたって大切なチーム内での良い対応をすること、他人が見ても
+                    見やすく分かりやすいものを作ることを心掛けています。
+                    </p>
             </div>
             <ul class="icon-list">
                 <li>
-                    <a href="">
+                    <a href="https://github.com">
                         <img src="img/github.png" alt="Githubのアイコン">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="img/twitter.png" alt="Twitterのアイコン">
                     </a>
                 </li>
             </ul>
@@ -74,34 +110,25 @@
             <ul class="works-list">
                 <li>
                     <img src="img/work_1.jpg" alt="Twitterクローンの画像">
-                    <h3>Twitterクローン</h3>
+                    <h3 id="TwitterClone">Twitterクローン</h3>
                     <span>HTML / CSS / PHP / MySQL</span>
                     <div class="link">
-                        <a href="">Webサイト</a>
-                        <a href="">Github</a>
+                        <a href="https://miyauchi15.com/TwitterClone/">Webサイト</a>
+                        <a href="https://github.com/miyauchi15/TwitterClone">Github</a>
                     </div>
                 </li>
 
                 <li>
-                    <img src="img/work_1.jpg" alt="Twitterクローンの画像">
-                    <h3>Twitterクローン</h3>
+                    <img src="img/work_2.jpg" alt="勤怠登録システムの画像">
+                    <h3 id="Kintai">勤怠登録システム</h3>
                     <span>HTML / CSS / PHP / MySQL</span>
                     <div class="link">
-                        <a href="">Webサイト</a>
-                        <a href="">Github</a>
+                        <a href="https://jobs-manager0001.herokuapp.com">Webサイト</a>
+                        <a href="https://github.com/hirokinagao/team_46">Github</a>
                     </div>
                 </li>
 
-                <li>
-                    <img src="img/work_1.jpg" alt="Twitterクローンの画像">
-                    <h3>Twitterクローン</h3>
-                    <span>HTML / CSS / PHP / MySQL</span>
-                    <div class="link">
-                        <a href="">Webサイト</a>
-                        <a href="">Github</a>
-                    </div>
-                </li>
-
+               
             </ul>
         </div>
 

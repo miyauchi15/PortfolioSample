@@ -6,6 +6,7 @@ body {
     font-family: "Noto Sans JP", "sans-serif";
     margin: 0;
     min-width: 1076px;
+    background-color: #ffff84;
 }
 
 .color-green {
@@ -34,6 +35,7 @@ body {
     letter-spacing: 1px;
 }
 
+
 /*
 * [main]のスタイルシート
 */
@@ -43,27 +45,122 @@ body {
     margin: 100px 0;
 }
 
+  /* ここから下がハンバーガーメニューに関するCSS */
+    
+
+  /* ハンバーガーアイコンの設置スペース */
+  .drawer_open {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    /*ボタンの背景色*/
+    /*background-color: #3584bb;*/
+  }
+  
+  
+  /* ハンバーガーメニューのアイコン */
+  .drawer_open span,
+  .drawer_open span:before,
+  .drawer_open span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background: #222;
+    position: absolute;
+    transition: all 300ms 0s ease;
+  }
+  
+  /* 三本線の一番上の棒の位置調整 */
+  .drawer_open span:before {
+    bottom: 8px;
+  }
+  
+  /* 三本線の一番下の棒の位置調整 */
+  .drawer_open span:after {
+    top: 8px;
+  }
+  
+  #drawer_input {
+      display: none;
+  }
+
+  /* アイコンがクリックされたら真ん中の線を透明にする */
+  #drawer_input:checked ~ .drawer_open span {
+    background: rgba(255, 255, 255, 0);
+  }
+  
+  /* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+  #drawer_input:checked ~ .drawer_open span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+    background-color: #ccc;
+    transition: all 300ms 0s ease;
+  }
+  
+  #drawer_input:checked ~ .drawer_open span::after {
+    top: 0;
+    transform: rotate(-45deg);
+    background-color: #ccc;
+    transition: all 300ms 0s ease;
+  }
+    
+  /* メニューのデザイン*/
+  .nav_content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -100%; 
+    z-index: 80;
+    background: white;
+    color: #222;
+    transition: all 300ms 0s ease;
+  }
+  
+  /* メニュー黒ポチを消す */
+  .nav_list {
+    list-style: none;
+  }
+  
+  /* アイコンがクリックされたらメニューを表示 */
+  #drawer_input:checked ~ .nav_content {
+    left: 0;/* メニューを画面に入れる */
+  }
+
 /*
  * [profile]のスタイルシート
  */
 
 .item-list {
-    width: 100%;
-    max-width: 348px;
+    width: 80%;
+    max-width: 750px;
     margin: 0 auto;
+}
+
+.item-list img {
+    width: 25%;
+    height: 20%;
 }
 
 .item-list b {
     display: block;
-    font-size: 24px;
+    font-size: 32px;
     font-weight: normal;
     margin: 20px 0 30px;
 }
 
 .item-list p {
-    font-size: 15px;
+    font-size: 30px;
     line-height: normal;
-    text-align: left;
+    text-align: initial;
 }
 
 .icon-list{
@@ -199,24 +296,30 @@ body {
  */
 
 .box-profile {
-    padding: 0 10px;
+        padding: 0 10px;
     }
 
 .item-list {
-    max-width: 100%;
+        max-width: 100%;
     }
 
 .item-list b {
-    font-size: 18px;
+        font-size: 32px;
+    }
+
+.item-list p {
+        font-size: 30px;
+        line-height: normal;
+        text-align: initial;
     }
 
 .icon-list {
-    max-width: 100%;
+        max-width: 100%;
     }
 
 .icon-list li {
-    margin-right: 25px;
-}
+        margin-right: 25px;
+    }
 
 /*
  * [works]のスタイルシート
